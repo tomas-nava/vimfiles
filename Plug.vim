@@ -28,11 +28,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " UI Additions {{{
 " Colors {{{
-Plug 'dolio/vim-hybrid'
-Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
-Plug 'mhartington/oceanic-next'
 Plug 'ayu-theme/ayu-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'dolio/vim-hybrid'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
+Plug 'romainl/vim-dichromatic'
 " }}}
 
 " lean & mean status/tabline for vim that's light as air
@@ -105,9 +108,6 @@ Plug 'tpope/vim-abolish'
 " Vim sugar for the UNIX shell commands that need it the most; e.g. :Find, :Wall
 Plug 'tpope/vim-eunuch'
 
-" Run a command over every entry in the quickfix list (:Cdo) or location list (:Ldo).
-Plug 'Peeja/vim-cdo'
-
 " Vim script for text filtering and alignment; e.g. :Tabularize /,
 Plug 'godlygeek/tabular'
 
@@ -122,12 +122,6 @@ Plug 'w0rp/ale'
 
 " Functions to toggle the [Location List] and the [Quickfix List] windows.
 Plug 'milkypostman/vim-togglelist'
-
-" True Sublime Text style multiple selections for Vim
-Plug 'terryma/vim-multiple-cursors'
-
-" Add emacs/bash/cocoa key bindings to vim, in insert and command-line modes.
-Plug 'maxbrunsfeld/vim-emacs-bindings'
 
 " The ultimate undo history visualizer for VIM
 Plug 'mbbill/undotree'
@@ -166,9 +160,6 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'zchee/deoplete-clang' " C/C++
-Plug 'zchee/deoplete-go' " Golang
-Plug 'sebastianmarkow/deoplete-rust' " Rust
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " Javascript
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim'
@@ -261,9 +252,7 @@ Plug 'shime/vim-livedown', { 'for': 'markdown' }
 " }}}
 
 " JavaScript {{{
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'mxw/vim-jsx'
 " }}}
