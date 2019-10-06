@@ -1,42 +1,26 @@
-let g:gruvbox_italic=1
-
 let s:colors = [
-      \ 'hybrid',
+      \ 'base16-tomorrow-night',
       \ 'gruvbox',
-      \ 'base16-3024',
-      \ 'base16-apathy',
-      \ 'base16-ashes',
-      \ 'base16-atelier-dune',
-      \ 'base16-atelier-forest',
-      \ 'base16-atelier-heath',
-      \ 'base16-atelier-lakeside',
-      \ 'base16-atelier-seaside',
-      \ 'base16-bespin',
+      \ 'palenight',
+      \ 'jellybeans',
+      \ 'base16-solarized-dark',
+      \ 'ayu',
+      \ 'dichromatic',
+      \ 'base16-tomorrow-night-eighties',
+      \ 'OceanicNext',
       \ 'base16-brewer',
       \ 'base16-bright',
-      \ 'base16-chalk',
-      \ 'base16-codeschool',
-      \ 'base16-default-dark',
-      \ 'base16-eighties',
-      \ 'base16-embers',
-      \ 'base16-flat',
-      \ 'base16-google-dark',
-      \ 'base16-grayscale-dark',
-      \ 'base16-greenscreen',
-      \ 'base16-harmonic-dark',
-      \ 'base16-isotope',
-      \ 'base16-marrakesh',
+      \ 'base16-hopscotch',
+      \ 'base16-ia-dark',
+      \ 'base16-irblack',
+      \ 'base16-material-vivid',
       \ 'base16-mocha',
-      \ 'base16-monokai',
-      \ 'base16-ocean',
-      \ 'base16-paraiso',
-      \ 'base16-pop',
-      \ 'base16-railscasts',
-      \ 'base16-shapeshifter',
-      \ 'base16-solarized-dark',
-      \ 'base16-summerfruit-dark',
-      \ 'base16-tomorrow',
-      \ 'base16-twilight',
+      \ 'base16-snazzy',
+      \ 'base16-solarflare',
+      \ 'base16-unikitty-dark',
+      \ 'base16-woodland',
+      \ 'desert',
+      \ 'base16-solarized-light'
       \ ]
 
 function! colors#_change(index)
@@ -47,8 +31,27 @@ function! colors#_change(index)
     let l:idx = 0
   endif
 
+  let l:needs_italics = 1
   let l:name = s:colors[l:idx]
+
+  if l:name == 'gruvbox'
+    let g:gruvbox_italic=1
+    let g:gruvbox_contrast_dark = 'hard'
+  elseif l:name == 'ayu'
+    let ayucolor = 'dark'
+  elseif l:name == 'jellybeans'
+    let g:jellybeans_use_term_italics = 1
+    let l:needs_italics = 0
+  elseif l:name == 'palenight'
+    let g:palenight_terminal_italics = 1
+    let l:needs_italics = 0
+  endif
+
   silent! execute 'colorscheme '.l:name
+  if l:needs_italics
+    highlight Comment cterm=italic gui=italic
+  endif
+  call colors#peek()
 endfunction
 
 function! colors#_callback()
@@ -65,27 +68,19 @@ function! colors#prev()
   call colors#_change(l:prev_index)
 endfunction
 
-function! colors#toggle_background()
-  if &background ==# 'light'
-    set background=dark
-  else
-    set background=light
-  endif
-endfunction
-
 function! colors#peek()
-  echo g:colors_name . ' - ' . &background
+  let l:current_index = index(s:colors, g:colors_name) + 1
+  let l:colors_count = len(s:colors)
+  echo l:current_index . "/" . l:colors_count .  " " . g:colors_name
 endfunction
 
 command! ColorsPrev call colors#prev()
 command! ColorsNext call colors#next()
-command! ColorsToggleBG call colors#toggle_background()
 command! ColorsPeek call colors#peek()
 
-map <silent><F2> :ColorsPrev<cr>
-map <silent><F3> :ColorsNext<cr>
-map <silent><F4> :ColorsToggleBG<cr>
 map <silent><F1> :ColorsPeek<cr>
+map <silent><F2> :ColorsNext<cr>
+map <silent><F3> :ColorsPrev<cr>
 set background=dark
 
 if has('termguicolors')
@@ -101,6 +96,8 @@ augroup luan_colors
 augroup END
 
 try
-  colorscheme hybrid
+  colorscheme base16-tomorrow-night
 catch
 endtry
+
+highlight Comment cterm=italic gui=italic
