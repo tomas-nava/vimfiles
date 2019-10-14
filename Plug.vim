@@ -5,9 +5,6 @@ Plug 'tpope/vim-sensible'
 " }}}
 
 " Navigation {{{
-" Displays tags in a window, ordered by scope
-Plug 'majutsushi/tagbar'
-
 " A tree explorer plugin for vim
 Plug 'scrooloose/nerdtree'
 
@@ -70,28 +67,6 @@ function! InstallVipe(info)
   endif
 endfunction
 
-function! InstallVimProc(info)
-  if a:info.status ==# 'installed' || a:info.force
-    if has('unix')
-      let s:uname = system('uname -s')
-      if s:uname =~? 'Darwin'
-        silent !make -f make_mac.mak
-      elseif s:uname =~? 'Linux'
-        silent !make
-      else
-        silent !gmake
-      endif
-    elseif has('win32unix')
-      silent !make -f make_cygwin.mak
-    elseif has('win32')
-      silent !tools\update-dll-mingw
-    endif
-  endif
-endfunction
-
-" asynchronous process manager; run :VimProcBang to run a command and echo the results
-Plug 'Shougo/vimproc.vim', { 'do': function('InstallVimProc') }
-
 " comment stuff out (via leader-/)
 Plug 'tomtom/tcomment_vim'
 
@@ -125,12 +100,6 @@ Plug 'milkypostman/vim-togglelist'
 
 " The ultimate undo history visualizer for VIM
 Plug 'mbbill/undotree'
-
-" Distraction-free writing in Vim
-Plug 'junegunn/goyo.vim'
-
-" All the world's indeed a stage and we are merely players
-Plug 'junegunn/limelight.vim'
 " }}}
 
 " Automatic Helpers {{{
@@ -146,37 +115,11 @@ Plug 'tpope/vim-sleuth'
 " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
 Plug 'tpope/vim-unimpaired'
 
-" Reorder delimited items
-Plug 'machakann/vim-swap'
-
 " Simplifies the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
 
-" Dark powered asynchronous completion framework for neovim/Vim8
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " Javascript
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neco-vim'
-let g:deoplete#enable_at_startup = 1
-
-" Clang based syntax highlighting for Neovim
-Plug 'arakashic/chromatica.nvim'
-
-if !has('nvim') || $ALL_PLUGINS ==# 'true'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Provide easy code formatting in Vim by integrating existing code formatters.
-Plug 'Chiel92/vim-autoformat'
-
-" displays information in echo area from echodoc plugin.
-Plug 'Shougo/echodoc.vim'
+" Coc is an intellisense engine for neovim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Make Vim persist editing state without fuss
 Plug 'kopischke/vim-stay'
@@ -230,20 +173,7 @@ endif
 Plug 'tpope/vim-rails', { 'for': ['ruby', 'rake'] }
 Plug 'tpope/vim-rake', { 'for': ['ruby', 'rake'] }
 Plug 'tpope/vim-bundler', { 'for': ['ruby', 'rake'] }
-Plug 'ecomba/vim-ruby-refactoring', { 'for': ['ruby', 'rake'] }
-Plug 'tpope/vim-cucumber', { 'for': ['cucumber'] }
-" }}}
-
-" Clojure {{{
-Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-" }}}
-
-" Go {{{
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'keith/rspec.vim'
 " }}}
 
 " Markdown {{{
@@ -253,21 +183,11 @@ Plug 'shime/vim-livedown', { 'for': 'markdown' }
 
 " JavaScript {{{
 Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'mxw/vim-jsx'
-" }}}
-
-" TypeScript {{{
-Plug 'leafgarland/typescript-vim'
-" }}}
-
-" Vue {{{
-Plug 'posva/vim-vue', { 'for': 'vue' }
 " }}}
 
 " CSS / HTML {{{
 Plug 'othree/html5.vim'
-Plug 'mattn/emmet-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gregsexton/MatchTag'
@@ -278,30 +198,9 @@ Plug 'ynkdir/vim-vimlparser', { 'for': 'vim' }
 Plug 'syngan/vim-vimlint', { 'for': 'vim' }
 " }}}
 
-" Fish {{{
-Plug 'dag/vim-fish', { 'for': 'fish' }
-" }}}
-
-" Elm {{{
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
-" }}}
-
-" Rust {{{
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-" }}}
-
 " Misc {{{
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'keith/tmux.vim'
 Plug 'kurayama/systemd-vim-syntax'
-Plug 'iloginow/vim-stylus'
-Plug 'chr4/nginx.vim'
-Plug 'uarun/vim-protobuf'
-Plug 'peterhoeg/vim-qml'
-Plug 'keith/rspec.vim'
 Plug 'hashivim/vim-terraform'
-Plug 'PProvost/vim-ps1'
-Plug 'ciaranm/securemodelines' " Secure modeline https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
 " }}}
 " }}}
 

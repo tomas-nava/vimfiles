@@ -10,8 +10,7 @@ This vimfiles support both standard [vim](http://www.vim.org/) and
 
 If you're using neovim follow [this
 guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) in order to get
-it properly setup. The autocompletion plugin we use needs [python3
-support](https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim) too.
+it properly setup.
 
 If you choose regular vim you can install it on ubuntu via the `vim-nox` package, or
 on macOS with Homebrew via `brew install vim`.
@@ -141,11 +140,6 @@ Enabling auto save:
 " will save automatically when leaving the buffer
 " 0 or 1, defaults 0
 let g:autosave = 1
-```
-
-Disabling deoplete:
-```vim
-let g:deoplete#enable_at_startup = 0   " disable deoplete
 ```
 
 Some configuration values need to be set before loading plugins, for that we

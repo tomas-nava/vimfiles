@@ -6,9 +6,10 @@ declare UPDATE=0 INTERACTIVE=1
 declare VIMCMD='vim'
 declare NPM='npm'
 declare PIP='pip'
+declare GEM='gem'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
-readonly VIMFILES_REPO_NAME='luan/vimfiles'
+readonly VIMFILES_REPO_NAME='tomas-nava/vimfiles'
 readonly VIMFILES_REPO_URL="https://github.com/${VIMFILES_REPO_NAME}"
 readonly FILES_TO_LINK="vimrc gvimrc"
 readonly LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
@@ -80,14 +81,6 @@ from_repo() {
 
 has_neovim() {
   which nvim > /dev/null
-}
-
-has_go() {
-  which go > /dev/null
-}
-
-has_elm() {
-  which elm > /dev/null
 }
 
 must_have_pip3() {
@@ -185,43 +178,6 @@ install_vim_update() {
   fi
 }
 
-setup_elm_dependencies() {
-  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}elm${NORMAL} dependencies..."
-  if has_npm; then
-    npmpackages="\
-      elm-test \
-      elm-oracle \
-      "
-
-    for p in $npmpackages; do
-      (
-      echo -e "\\t${YELLOW}INSTALL${END_COLOR} ${BOLD}${p}${NORMAL}..."
-      if $NPM install -g "${p}"; then
-        echo -e "\\t${GREEN}DONE${END_COLOR}    ${BOLD}${p}${NORMAL}"
-      else
-        echo -e "\\t${RED}ERROR${END_COLOR}    ${BOLD}${p}${NORMAL}"
-      fi
-      ) &
-    done
-  else
-    echo -e "\\t${RED}ERROR${END_COLOR} ${BOLD}NPM not found, some elm dependencies were skipped${NORMAL}!"
-  fi
-
-  (
-  echo -e "\\t${YELLOW}INSTALL${END_COLOR} ${BOLD}elm-format${NORMAL}..."
-  if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-linux-x64.tgz'
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
-    elm_format_url='https://github.com/avh4/elm-format/releases/download/0.2.0-alpha/elm-format-0.2.0-alpha-mac-x64.tgz'
-  fi
-  tar xz -O < <(curl -L $elm_format_url) > bin/elm-format
-  chmod a+x bin/elm-format
-  echo -e "\\t${GREEN}DONE${END_COLOR}    ${BOLD}elm-format${NORMAL}"
-  ) &
-  wait
-  echo -e "${GREEN}DONE${END_COLOR}    ${BOLD}elm${NORMAL} dependencies"
-}
-
 setup_livedown() {
   $NPM install -g livedown
 }
@@ -252,21 +208,6 @@ setup_vim_calls() {
   fi
 }
 
-setup_go_dependencies() {
-  (
-  cd "${VIMFILES_PATH}" || exit 2
-  mkdir -p gobin gopath
-  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}go binaries${NORMAL} (may take a while)..." >&4
-  GOPATH="${PWD}/gopath" ${VIMCMD} +'GoUpdateBinaries' +'qall!'
-  echo
-  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gometalinter" --install --update
-  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}go binaries${NORMAL}" >&4
-  set +e
-  GOPATH="${PWD}/gopath" GOBIN="${PWD}/gobin" "${PWD}/gobin/gocode" close 2>/dev/null
-  set -e
-  )
-}
-
 install_plugins() {
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL} (may take a while)..."
 
@@ -289,7 +230,6 @@ main() {
   initialize_vimfiles
   install_vim_update
 
-  has_elm && setup_elm_dependencies
   has_npm && setup_livedown
 
   must_have_pip3
@@ -299,7 +239,6 @@ main() {
 
   install_plugins
 
-  has_go && setup_go_dependencies
   return 0
 }
 
