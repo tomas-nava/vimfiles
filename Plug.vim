@@ -33,6 +33,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'romainl/vim-dichromatic'
+Plug 'joshdick/onedark.vim'
+Plug 'jaredgorski/spacecamp'
 " }}}
 
 " lean & mean status/tabline for vim that's light as air

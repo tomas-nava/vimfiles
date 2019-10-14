@@ -2,8 +2,11 @@ let s:colors = [
       \ 'base16-tomorrow-night',
       \ 'gruvbox',
       \ 'palenight',
-      \ 'jellybeans',
+      \ 'onedark',
       \ 'base16-solarized-dark',
+      \ 'spacecamp_lite',
+      \ 'spacecamp',
+      \ 'jellybeans',
       \ 'ayu',
       \ 'dichromatic',
       \ 'base16-tomorrow-night-eighties',
@@ -45,8 +48,12 @@ function! colors#_change(index)
   elseif l:name == 'palenight'
     let g:palenight_terminal_italics = 1
     let l:needs_italics = 0
+  elseif l:name == 'onedark'
+    let g:onedark_terminal_italics = 1
+    let l:needs_italics = 0
   endif
 
+  syntax on
   silent! execute 'colorscheme '.l:name
   if l:needs_italics
     highlight Comment cterm=italic gui=italic
