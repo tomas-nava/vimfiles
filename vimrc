@@ -21,6 +21,7 @@ runtime! config/plugin/ack.vim
 runtime! config/plugin/airline.vim
 runtime! config/plugin/ale.vim
 runtime! config/plugin/better-whitespace.vim
+runtime! config/plugin/coc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/livedown.vim
 runtime! config/plugin/ncm.vim

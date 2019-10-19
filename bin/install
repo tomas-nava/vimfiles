@@ -6,13 +6,14 @@ declare UPDATE=0 INTERACTIVE=1
 declare VIMCMD='vim'
 declare NPM='npm'
 declare PIP='pip'
-declare GEM='gem'
+declare GEM='sudo gem'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
 readonly VIMFILES_REPO_NAME='tomas-nava/vimfiles'
 readonly VIMFILES_REPO_URL="https://github.com/${VIMFILES_REPO_NAME}"
 readonly FILES_TO_LINK="vimrc gvimrc"
 readonly LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
+readonly COC_PLUGINS="coc-json coc-solargraph coc-tsserver"
 
 readonly GREEN='\033[0;32m'
 readonly YELLOW='\033[0;33m'
@@ -107,6 +108,20 @@ has_npm() {
   return 1
 }
 
+has_gem() {
+  if which gem > /dev/null; then
+    return 0
+  fi
+  return 1
+}
+
+has_rbenv() {
+  if which rbenv > /dev/null; then
+    return 0
+  fi
+  return 1
+}
+
 setup_vimfiles_dir() {
   declare script_name=$0
   local dir
@@ -178,8 +193,15 @@ install_vim_update() {
   fi
 }
 
-setup_livedown() {
-  $NPM install -g livedown
+init_rbenv() {
+  eval "$(rbenv init -)"
+}
+
+install_solargraph() {
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}solargraph${NORMAL}"
+  has_rbenv && init_rbenv
+  $GEM install solargraph
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}solargraph${NORMAL}"
 }
 
 setup_neovim_python3() {
@@ -209,7 +231,7 @@ setup_vim_calls() {
 }
 
 install_plugins() {
-  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL} (may take a while)..."
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL}"
 
   ALL_PLUGINS='true' ${VIMCMD} +'PlugClean!' +'PlugUpdate!' +'qall!'
 
@@ -221,6 +243,12 @@ install_plugins() {
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}" >&4
 }
 
+setup_coc() {
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}coc plugins${NORMAL}: $COC_PLUGINS"
+  ${VIMCMD} +"CocInstall -sync $COC_PLUGINS" +'qall'
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}coc plugins${NORMAL}"
+}
+
 main() {
   parse_flags "$@"
 
@@ -230,7 +258,7 @@ main() {
   initialize_vimfiles
   install_vim_update
 
-  has_npm && setup_livedown
+  has_gem && install_solargraph
 
   must_have_pip3
   setup_neovim_python3
@@ -238,6 +266,7 @@ main() {
   setup_vim_calls
 
   install_plugins
+  setup_coc
 
   return 0
 }
