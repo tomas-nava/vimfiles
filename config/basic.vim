@@ -16,20 +16,25 @@ let g:netrw_altfile = 1
 " }}}
 
 " Backups {{{
-set swapfile                    " Keep swapfiles
+set swapfile       " Keep swapfiles
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set backupdir=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set nobackup       " for coc-nvim
+set nowritebackup  " for coc-nvim
 " }}}
 
 " UI {{{
 set number         " Line numbers on
 set nowrap         " Line wrapping off
-set cmdheight=1    " Make the command area two lines high
+set cmdheight=2    " Make the command area two lines high
 set noshowmode     " don't need to show mode since we have airline
 set numberwidth=4
 set encoding=utf-8
 set guioptions=cg
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set updatetime=300 " for coc-nvim
+set shortmess+=c   " for coc-nvim
+set signcolumn=yes " for coc-nvim
 if !has('nvim')
   set ttyfast
 endi

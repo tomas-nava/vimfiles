@@ -14,5 +14,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
 
-" Enable completion where available.
-let g:ale_completion_enabled = 1
+" Disable completion
+let g:ale_completion_enabled = 0
+
+highlight clear ALEErrorSign   " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_statusline_format = ['X %d', '? %d', '']
+let g:ale_echo_msg_format = '[%linter%] %s'

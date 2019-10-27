@@ -13,7 +13,6 @@ readonly VIMFILES_REPO_NAME='tomas-nava/vimfiles'
 readonly VIMFILES_REPO_URL="https://github.com/${VIMFILES_REPO_NAME}"
 readonly FILES_TO_LINK="vimrc gvimrc"
 readonly LOCALS=".vimrc.local.before .vimrc.local .vimrc.local.plugins"
-readonly COC_PLUGINS="coc-json coc-solargraph coc-tsserver"
 
 readonly GREEN='\033[0;32m'
 readonly YELLOW='\033[0;33m'
@@ -243,12 +242,6 @@ install_plugins() {
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}" >&4
 }
 
-setup_coc() {
-  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}coc plugins${NORMAL}: $COC_PLUGINS"
-  ${VIMCMD} +"CocInstall -sync $COC_PLUGINS" +'qall'
-  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}coc plugins${NORMAL}"
-}
-
 main() {
   parse_flags "$@"
 
@@ -266,7 +259,6 @@ main() {
   setup_vim_calls
 
   install_plugins
-  setup_coc
 
   return 0
 }
