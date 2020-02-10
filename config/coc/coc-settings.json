@@ -1,3 +1,4 @@
 {
-  "suggest.autoTrigger": "none"
+  "suggest.autoTrigger": "none",
+  "solargraph.commandPath": "/Users/tomas/.rbenv/shims/solargraph"
 }
