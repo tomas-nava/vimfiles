@@ -232,12 +232,7 @@ setup_vim_calls() {
 install_plugins() {
   echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL}"
 
-  ALL_PLUGINS='true' ${VIMCMD} +'PlugClean!' +'PlugUpdate!' +'qall!'
-
-  if has_neovim; then
-    ${VIMCMD} +'UpdateRemotePlugins' +'qall!'
-    echo
-  fi
+  ALL_PLUGINS='true' ${VIMCMD} +'PlugClean!' +'PlugUpdate!' +'UpdateRemotePlugins' +'qall!'
 
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}" >&4
 }
