@@ -113,14 +113,15 @@ function! RunTests(filename)
   elseif match(a:filename, '\.bats') != -1
     let l:command = 'bats ' . a:filename
   else
+    let l:prefix = match(a:filename, 'spec\/feature') != -1 ? 'REACT_ON_RAILS_ENV=HOT; ' : ''
     if filereadable('script/test')
       let l:command = 'script/test ' . a:filename
     elseif filereadable('scripts/test')
       let l:command = 'scripts/test ' . a:filename
     elseif (exists('g:force_bundle_exec') && g:force_bundle_exec == 1) || filereadable('Gemfile')
-      let l:command = 'bundle exec rspec --color --format documentation ' . a:filename
+      let l:command = l:prefix . 'bundle exec rspec --color --format documentation ' . a:filename
     else
-      let l:command = 'rspec --color --format documentation ' . a:filename
+      let l:command = l:prefix . 'rspec --color --format documentation ' . a:filename
     end
   end
 
