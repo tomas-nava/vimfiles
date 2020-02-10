@@ -180,7 +180,6 @@ Plug 'keith/rspec.vim'
 
 " Markdown {{{
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'shime/vim-livedown', { 'for': 'markdown' }
 " }}}
 
 " JavaScript {{{
