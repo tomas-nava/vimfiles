@@ -7,11 +7,13 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '➤'
 let g:ale_sign_info = '➟'
 let g:ale_sign_column_always = 1
+let g:ale_ruby_rubocop_executable = 'bundle'
 
 let g:ale_linters = {
 \   'go': ['go build', 'gofmt', 'gometalinter'],
 \   'typescript': ['tsserver', 'typecheck'],
 \   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
 \}
 
 " Disable completion
