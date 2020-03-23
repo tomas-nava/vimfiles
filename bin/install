@@ -230,11 +230,7 @@ setup_vim_calls() {
 }
 
 install_plugins() {
-  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL}"
-
   ALL_PLUGINS='true' ${VIMCMD} +'PlugClean!' +'PlugUpdate!' +'UpdateRemotePlugins' +'qall!'
-
-  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}" >&4
 }
 
 main() {
@@ -248,12 +244,15 @@ main() {
 
   has_gem && install_solargraph
 
+  echo -e "${YELLOW}SET UP${END_COLOR} ${BOLD}neovim with python${NORMAL}"
   must_have_pip3
   setup_neovim_python3
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}neovim with python${NORMAL}"
 
+  echo -e "${YELLOW}INSTALL${END_COLOR} ${BOLD}vim plugins${NORMAL}"
   setup_vim_calls
-
   install_plugins
+  echo -e "${GREEN}DONE${END_COLOR} ${BOLD}vim plugins${NORMAL}"
 
   return 0
 }

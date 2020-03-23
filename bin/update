@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 pushd $HOME/.vim > /dev/null
+echo -e "\033[0;33mREFRESHING REPO\033[0;m $(tput bold)vimfiles$(tput sgr0)"
 git pull
+echo -e "\033[0;32mDONE\033[0;m $(tput bold)vimfiles$(tput sgr0)"
 ~/.vim/bin/install -u $@
 popd > /dev/null
