@@ -21,10 +21,12 @@ let s:colors = [
       \ 'base16-solarflare',
       \ 'base16-unikitty-dark',
       \ 'base16-woodland',
-      \ 'base16-ia-light',
-      \ 'base16-gruvbox-light-hard',
-      \ 'base16-one-light',
+      \ 'base16-papercolor-dark',
       \ 'base16-solarized-light',
+      \ 'base16-gruvbox-light-hard',
+      \ 'base16-ia-light',
+      \ 'base16-google-light',
+      \ 'base16-one-light',
       \ 'base16-tomorrow'
       \ ]
 
