@@ -17,13 +17,15 @@ let s:colors = [
       \ 'base16-ia-dark',
       \ 'base16-irblack',
       \ 'base16-material-vivid',
-      \ 'base16-mocha',
       \ 'base16-snazzy',
       \ 'base16-solarflare',
       \ 'base16-unikitty-dark',
       \ 'base16-woodland',
-      \ 'desert',
-      \ 'base16-solarized-light'
+      \ 'base16-ia-light',
+      \ 'base16-gruvbox-light-hard',
+      \ 'base16-one-light',
+      \ 'base16-solarized-light',
+      \ 'base16-tomorrow'
       \ ]
 
 function! colors#_change(index)
