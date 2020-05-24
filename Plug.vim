@@ -44,6 +44,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Visual register search
 Plug 'junegunn/vim-peekaboo'
 
+" Multiple cursors
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 " Show a diff via Vim sign column.
 Plug 'mhinz/vim-signify'
 
