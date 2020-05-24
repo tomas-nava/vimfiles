@@ -98,13 +98,3 @@ nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 nnoremap <silent><leader><C-]> <C-w><C-]><C-w>T
 " }}}
-
-" Test runner {{{
-" Run this file
-map <leader>t :call RunTestFile()<cr>
-" Run only the example under the cursor
-map <leader>T :call RunNearestTest()<cr>
-
-map <leader><space> :Vipe <CR>
-map <leader>p :VipePop <CR>
-" }}}

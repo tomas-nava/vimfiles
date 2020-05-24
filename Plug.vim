@@ -54,20 +54,11 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jszakmeister/vim-togglecursor'
 " }}}
 
-" Commands {{{
-function! InstallVipe(info)
-  if a:info.status ==# 'installed' || a:info.force
-    if has('unix')
-      let s:uname = system('uname -s')
-      if s:uname =~? 'Darwin'
-        silent !rm -f /usr/local/bin/vipe
-        silent !ln -s `pwd`/vipe /usr/local/bin || true
-      else
-        silent !ln -s `pwd`/vipe ~/bin || true
-      endif
-    endif
-  endif
-endfunction
+" asynchronous build and test dispatcher
+Plug 'vim-test/vim-test'
+
+" Wrapper of some vim/neovim's :terminal functions
+Plug 'kassio/neoterm'
 
 " comment stuff out (via leader-/)
 Plug 'tomtom/tcomment_vim'
@@ -90,9 +81,6 @@ Plug 'godlygeek/tabular'
 
 " Vim plugin for the Perl module / CLI script 'ack'
 Plug 'mileszs/ack.vim'
-
-" Send test commands to a pipe.
-Plug 'luan/vipe', { 'do': function('InstallVipe') }
 
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
