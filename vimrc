@@ -25,6 +25,7 @@ runtime! config/plugin/coc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/neoterm.vim
 runtime! config/plugin/nerdtree.vim
+runtime! config/plugin/peekaboo.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tcomment.vim
 runtime! config/plugin/ultisnips.vim

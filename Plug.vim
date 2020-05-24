@@ -41,6 +41,9 @@ Plug 'jaredgorski/spacecamp'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Visual register search
+Plug 'junegunn/vim-peekaboo'
+
 " Show a diff via Vim sign column.
 Plug 'mhinz/vim-signify'
 
