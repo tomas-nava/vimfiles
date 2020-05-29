@@ -27,7 +27,7 @@ set nowritebackup  " for coc-nvim
 set number         " Line numbers on
 set nowrap         " Line wrapping off
 set cmdheight=2    " Make the command area two lines high
-set noshowmode     " don't need to show mode since we have airline
+set noshowmode     " don't need to show mode since we have lightline
 set numberwidth=4
 set encoding=utf-8
 set guioptions=cg

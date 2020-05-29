@@ -37,9 +37,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'jaredgorski/spacecamp'
 " }}}
 
-" lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Lightweight status line
+Plug 'itchyny/lightline.vim'
+" ALE indicator for the lightline vim plugin
+Plug 'maximbaz/lightline-ale'
 
 " Visual register search
 Plug 'junegunn/vim-peekaboo'
