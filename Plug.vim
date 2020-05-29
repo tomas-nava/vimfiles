@@ -103,6 +103,9 @@ Plug 'mbbill/undotree'
 " wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 Plug 'tpope/vim-endwise'
 
+" close brackets on <cr>
+Plug 'rstacruz/vim-closer'
+
 " enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-repeat'
 
