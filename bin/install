@@ -5,7 +5,7 @@ set -eu -o pipefail
 declare UPDATE=0 INTERACTIVE=1
 declare VIMCMD='vim'
 declare NPM='npm'
-declare PIP='pip'
+declare PIP='pip3'
 declare GEM='sudo gem'
 
 readonly VIMFILES_PATH="${HOME}/.vim"
@@ -81,20 +81,6 @@ from_repo() {
 
 has_neovim() {
   which nvim > /dev/null
-}
-
-must_have_pip3() {
-  if which pip3 > /dev/null; then
-    PIP=pip3
-    return
-  elif which pip > /dev/null; then
-    PIP=pip
-    return
-  fi
-  echo -e "\\t${RED}ERROR${END_COLOR} You need python3 with pip installed in" \
-    "order for this configuration to work. Please make sure to install" \
-    "python3 on your system and run this intaller again."
-  exit 1
 }
 
 has_npm() {
@@ -245,7 +231,6 @@ main() {
   has_gem && install_solargraph
 
   echo -e "${YELLOW}SET UP${END_COLOR} ${BOLD}neovim with python${NORMAL}"
-  must_have_pip3
   setup_neovim_python3
   echo -e "${GREEN}DONE${END_COLOR} ${BOLD}neovim with python${NORMAL}"
 
