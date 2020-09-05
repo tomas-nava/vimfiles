@@ -90,7 +90,7 @@ Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
 
 " Asynchronous Lint Engine
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Functions to toggle the [Location List] and the [Quickfix List] windows.
 Plug 'milkypostman/vim-togglelist'
