@@ -32,6 +32,7 @@ runtime! config/plugin/tcomment.vim
 runtime! config/plugin/ultisnips.vim
 runtime! config/plugin/undotree.vim
 runtime! config/plugin/vim-test.vim
+runtime! config/plugin/vim-visual-multi.vim
 
 if has('gui_running')
   runtime! config/plugin/ctrlp.vim

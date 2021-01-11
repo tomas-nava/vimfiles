@@ -8,4 +8,4 @@ let g:nnn#set_default_mappings = 0
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.9, 'highlight': 'Debug' } }
 
 " Start nnn in the current file's directory
-nnoremap <silent> <leader>\ :NnnPicker %:p:h<CR>
+nnoremap \ :NnnPicker %:p:h<CR>
