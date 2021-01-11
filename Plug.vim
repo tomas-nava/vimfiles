@@ -6,7 +6,9 @@ Plug 'tpope/vim-sensible'
 
 " Navigation {{{
 " A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
+" A file explorer plugin for vim, requires jarun/nnn
+Plug 'mcchrish/nnn.vim'
 
 " combine with netrw to create a delicious salad dressing
 Plug 'tpope/vim-vinegar'
