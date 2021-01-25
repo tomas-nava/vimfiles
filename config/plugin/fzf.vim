@@ -9,6 +9,7 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = ''
 if executable('rg')
