@@ -28,12 +28,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 " UI Additions {{{
 " Colors {{{
 Plug 'ayu-theme/ayu-vim'
-Plug 'chriskempson/base16-vim'
+Plug 'fnune/base16-vim'
 Plug 'dolio/vim-hybrid'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
 Plug 'romainl/vim-dichromatic'
 Plug 'joshdick/onedark.vim'
 Plug 'jaredgorski/spacecamp'

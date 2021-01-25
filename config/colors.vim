@@ -1,32 +1,36 @@
 let s:colors = [
       \ 'base16-tomorrow-night',
+      \ 'base16-tomorrow-night-eighties',
       \ 'gruvbox',
+      \ 'base16-equilibrium-dark',
+      \ 'base16-espresso',
+      \ 'base16-horizon-terminal-dark',
+      \ 'base16-silk-dark',
+      \ 'base16-sandcastle',
+      \ 'base16-vulcan',
       \ 'palenight',
       \ 'onedark',
       \ 'base16-solarized-dark',
       \ 'spacecamp_lite',
       \ 'spacecamp',
-      \ 'jellybeans',
       \ 'ayu',
       \ 'dichromatic',
-      \ 'base16-tomorrow-night-eighties',
       \ 'OceanicNext',
       \ 'base16-brewer',
       \ 'base16-bright',
+      \ 'base16-irblack',
+      \ 'base16-gigavolt',
       \ 'base16-hopscotch',
       \ 'base16-ia-dark',
-      \ 'base16-irblack',
-      \ 'base16-material-vivid',
       \ 'base16-snazzy',
       \ 'base16-solarflare',
-      \ 'base16-unikitty-dark',
       \ 'base16-woodland',
+      \ 'base16-darkmoss',
       \ 'base16-papercolor-dark',
-      \ 'base16-solarized-light',
-      \ 'base16-gruvbox-light-hard',
-      \ 'base16-ia-light',
-      \ 'base16-google-light',
       \ 'base16-one-light',
+      \ 'base16-equilibrium-gray-light',
+      \ 'base16-gruvbox-light-hard',
+      \ 'base16-solarized-light',
       \ 'base16-tomorrow'
       \ ]
 
@@ -46,9 +50,6 @@ function! colors#_change(index)
     let g:gruvbox_contrast_dark = 'hard'
   elseif l:name == 'ayu'
     let ayucolor = 'dark'
-  elseif l:name == 'jellybeans'
-    let g:jellybeans_use_term_italics = 1
-    let l:needs_italics = 0
   elseif l:name == 'palenight'
     let g:palenight_terminal_italics = 1
     let l:needs_italics = 0
