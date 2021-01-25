@@ -1,6 +1,7 @@
 let s:colors = [
       \ 'base16-tomorrow-night',
       \ 'base16-tomorrow-night-eighties',
+      \ 'base16-darkmoss',
       \ 'gruvbox',
       \ 'base16-equilibrium-dark',
       \ 'base16-espresso',
@@ -25,7 +26,6 @@ let s:colors = [
       \ 'base16-snazzy',
       \ 'base16-solarflare',
       \ 'base16-woodland',
-      \ 'base16-darkmoss',
       \ 'base16-papercolor-dark',
       \ 'base16-one-light',
       \ 'base16-equilibrium-gray-light',
