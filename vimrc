@@ -29,7 +29,6 @@ runtime! config/plugin/nnn.vim
 runtime! config/plugin/peekaboo.vim
 runtime! config/plugin/signify.vim
 runtime! config/plugin/tcomment.vim
-runtime! config/plugin/ultisnips.vim
 runtime! config/plugin/undotree.vim
 runtime! config/plugin/vim-test.vim
 runtime! config/plugin/vim-visual-multi.vim

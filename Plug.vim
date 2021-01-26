@@ -161,14 +161,6 @@ Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-fold'
 " }}}'
 
-" Snippets {{{
-"UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
-if has('python') || has('python3')
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-endif
-" }}}
-
 " Language specific {{{
 " Ruby {{{
 Plug 'tpope/vim-rails', { 'for': ['ruby', 'rake'] }
