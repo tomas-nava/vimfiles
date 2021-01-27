@@ -1,7 +1,8 @@
 let s:colors = [
       \ 'base16-tomorrow-night',
-      \ 'base16-tomorrow-night-eighties',
+      \ 'base16-gigavolt',
       \ 'base16-darkmoss',
+      \ 'base16-tomorrow-night-eighties',
       \ 'gruvbox',
       \ 'base16-equilibrium-dark',
       \ 'base16-espresso',
@@ -20,7 +21,6 @@ let s:colors = [
       \ 'base16-brewer',
       \ 'base16-bright',
       \ 'base16-irblack',
-      \ 'base16-gigavolt',
       \ 'base16-hopscotch',
       \ 'base16-ia-dark',
       \ 'base16-snazzy',
