@@ -1,6 +1,7 @@
 let s:colors = [
-      \ 'base16-tomorrow-night',
       \ 'base16-gigavolt',
+      \ 'base16-tomorrow-night',
+      \ 'base16-danqing',
       \ 'base16-darkmoss',
       \ 'base16-tomorrow-night-eighties',
       \ 'gruvbox',
@@ -31,7 +32,8 @@ let s:colors = [
       \ 'base16-equilibrium-gray-light',
       \ 'base16-gruvbox-light-hard',
       \ 'base16-solarized-light',
-      \ 'base16-tomorrow'
+      \ 'base16-tomorrow',
+      \ 'base16-rose-pine-dawn'
       \ ]
 
 function! colors#_change(index)
@@ -108,7 +110,7 @@ augroup luan_colors
 augroup END
 
 try
-  colorscheme base16-tomorrow-night
+  colorscheme base16-gigavolt
 catch
 endtry
 
