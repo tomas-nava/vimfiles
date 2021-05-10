@@ -30,6 +30,7 @@ let s:colors = [
       \ 'base16-papercolor-dark',
       \ 'base16-one-light',
       \ 'base16-equilibrium-gray-light',
+      \ 'base16-sakura',
       \ 'base16-gruvbox-light-hard',
       \ 'base16-solarized-light',
       \ 'base16-tomorrow',
