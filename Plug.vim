@@ -5,8 +5,6 @@ Plug 'tpope/vim-sensible'
 " }}}
 
 " Navigation {{{
-" A tree explorer plugin for vim
-" Plug 'scrooloose/nerdtree'
 " A file explorer plugin for vim, requires jarun/nnn
 Plug 'mcchrish/nnn.vim'
 
@@ -118,9 +116,6 @@ Plug 'tpope/vim-unimpaired'
 
 " Simplifies the transition between multiline and single-line code
 Plug 'AndrewRadev/splitjoin.vim'
-
-" Coc is an intellisense engine for neovim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Make Vim persist editing state without fuss
 Plug 'kopischke/vim-stay'

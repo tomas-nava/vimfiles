@@ -20,11 +20,9 @@ runtime! config/paste.vim
 runtime! config/plugin/ack.vim
 runtime! config/plugin/ale.vim
 runtime! config/plugin/better-whitespace.vim
-runtime! config/plugin/coc.vim
 runtime! config/plugin/fugitive.vim
 runtime! config/plugin/lightline.vim
 runtime! config/plugin/neoterm.vim
-" runtime! config/plugin/nerdtree.vim
 runtime! config/plugin/nnn.vim
 runtime! config/plugin/peekaboo.vim
 runtime! config/plugin/signify.vim
