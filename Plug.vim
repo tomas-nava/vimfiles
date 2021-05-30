@@ -41,6 +41,10 @@ Plug 'itchyny/lightline.vim'
 " ALE indicator for the lightline vim plugin
 Plug 'maximbaz/lightline-ale'
 
+" LSP server plugins
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+
 " Visual register search
 Plug 'junegunn/vim-peekaboo'
 
