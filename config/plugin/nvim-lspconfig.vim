@@ -10,4 +10,11 @@ nvim_lsp.solargraph.setup{
     }
   }
 }
+
+-- make sure typescript & tsserver are installed:
+-- npm i -g typescript typescript-language-server
+--
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach
+}
 EOF
